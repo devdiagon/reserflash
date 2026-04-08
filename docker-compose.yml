@@ -1,0 +1,16 @@
+services:
+  postgres_reservas:
+    image: postgres:latest
+    container_name: postgres_reservas
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: flask_api_test
+      POSTGRES_DB: reservations
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
